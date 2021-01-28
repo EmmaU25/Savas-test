@@ -22,6 +22,8 @@ Now you can run the ionic server on your web browser, using the next command
 ionic serve
 ```
 
+If you dont have an username and password, please register one
+
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
