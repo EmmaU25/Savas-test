@@ -1,17 +1,27 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Government information
     </ion-title>
+    <ion-button slot="end" class="ion-margin-end" (click)="closesession()">
+      <ion-icon name="log-in-outline"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="card-background-page ion-padding">
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar> 
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <div *ngIf="flag">
+    <ion-card *ngFor="let item of gobservice.activies" class="ion-margin-top" (click)="presentModal(item._id)">
+      <img src="../../assets/images/banner-card.jpg"/>
+      <div class="card-title">{{item.organization}}</div>
+      <div class="card-subtitle">{{item.fact}}</div>
+    </ion-card>
+  </div>
+  
+  <div *ngIf="!flag">
+    <ion-spinner name="crescent"></ion-spinner>
+  </div>
+
 </ion-content>

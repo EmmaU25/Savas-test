@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    
+    <ion-title>Details</ion-title>
+    <ion-buttons slot="end" class="ion-margin-end" (click)="closeModal()">
+      <ion-icon name="close-circle-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list *ngIf="flag">
+      <ion-label>ID: </ion-label>
+      <ion-input type="text" [value]="this.res._id"></ion-input>
+      <ion-label class="ion-margin-top">Date insert: </ion-label>
+      <ion-input type="text" [value]=res.date_insert readonly></ion-input>
+      <ion-label class="ion-margin-top">Slug: </ion-label>
+      <ion-input type="text" [value]=res.slug readonly></ion-input>
+      <ion-label class="ion-margin-top">Columns: </ion-label>
+      <ion-input type="text" [value]=res.columns readonly></ion-input>
+      <ion-label class="ion-margin-top">Fact: </ion-label>
+      <ion-input type="text" [value]=res.fact readonly></ion-input>
+      <ion-label class="ion-margin-top">Organization: </ion-label>
+      <ion-input type="text" [value]=res.organization readonly></ion-input>
+      <ion-label class="ion-margin-top">Ressource: </ion-label>
+      <ion-input type="text" [value]=res.resource readonly></ion-input>
+      <ion-label class="ion-margin-top">Url: </ion-label>
+      <ion-input type="text" [value]=res.url readonly></ion-input>
+      <ion-label class="ion-margin-top">Operations: </ion-label>
+      <ion-input type="text" [value]=res.operations readonly></ion-input>
+      <ion-label class="ion-margin-top">Dataset: </ion-label>
+      <ion-input type="text" [value]=res.dataset readonly></ion-input>
+      <ion-label class="ion-margin-top">Created at: </ion-label>
+      <ion-input type="text" [value]=res.created_at readonly></ion-input>
+    
+  </ion-list>
+
+  <div *ngIf="!flag">
+    <ion-spinner name="crescent"></ion-spinner>
+  </div>
+</ion-content>

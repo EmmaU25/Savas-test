@@ -1,17 +1,26 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Grouped GobFacts List
     </ion-title>
+
+    <ion-button slot="end" class="ion-margin-end" (click)="closesession()">
+      <ion-icon name="log-in-outline"></ion-icon>
+    </ion-button>
+    
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+<ion-list *ngFor="let item of gobservice.activies | orderby : 'slug' ">
+  <ion-list-header lines="inset">
+    <ion-label>{{item.key}}</ion-label>
+  </ion-list-header>
+  <ion-item lines="none" *ngFor="let iteme of item.value">
+    <ion-label color="primary">
+      <p>ID: {{iteme._id}} </p>
+    </ion-label>
+  </ion-item>
+</ion-list>
 </ion-content>
